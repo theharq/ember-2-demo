@@ -3,9 +3,10 @@
 
     {{#if canCreateSong}}
       <div class="list-group-item song">
-        {{input type="text" class="new-song" placeholder="New song" value=title}}
-        <button class="btn btn-primary btn-sm new-song-button" disabled={{isAddButtonDisabled}}
-        {{action "createSong"}}>Add</button>
+        <form {{action "createSong" on="submit"}}>
+          {{input type="text" class="new-song" placeholder="New song" value=title}}
+          <button type="submit" class="btn btn-primary btn-sm new-song-button" disabled={{isAddButtonDisabled}}>Add</button>
+        </form>
       </div>
     {{else}}
       <div class="list-group-item empty-list">
