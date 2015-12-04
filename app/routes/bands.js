@@ -7,9 +7,11 @@ export default Ember.Route.extend({
 
   actions: {
     createBand(){
-      var name = this.get('controller').get('name');
-      alert(name);
-      this.get('controller').set('name', '');
+      let bandName = this.get('controller').get('name');
+      this.store.createRecord('band',{name: bandName}).save().then((band) => {
+        this.set('controller.name', '');
+        this.transitionTo('bands.band.songs', band);
+      });
     }
   }
 });

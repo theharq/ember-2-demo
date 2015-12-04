@@ -52,5 +52,11 @@ export default function() {
         attributes: db.songs.find(id)
       }
     };
-  })
+  }),
+
+  this.post('/bands', (db, request) => {
+    let payload = JSON.parse(request.requestBody);
+    let band = db.bands.insert(payload.data.attributes);
+    return {data: { type: 'bands', id: band.id, attributes: band}};
+  });
 }
