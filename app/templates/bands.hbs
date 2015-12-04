@@ -1,7 +1,7 @@
 
 <div class="col-md-4">
   <div class="list-group">
-    {{#each model.sortedContent as |band|}}
+    {{#each model as |band|}}
       {{#link-to "bands.band.songs" band class="list-group-item band-link"}}
         {{band.name}}
         <span class="pointer glyphicon glyphicon-chevron-right"></span>
