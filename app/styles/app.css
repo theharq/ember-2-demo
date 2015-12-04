@@ -1,13 +1,16 @@
 html, body {
   margin: 20 px;
 }
+
 .page - header a h1 {
   color: #555;
 }
+
 .list-wrapper {
   margin-left: 0;
   margin-right: 0;
 }
+
 .navbar-default .navbar-nav > li > a.active,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
@@ -19,15 +22,18 @@ html, body {
   min-height: 100px;
   text-align: center;
 }
+
 .empty-list .empty-message {
   display: inline-block;
   color: #555;
   line-height: 100px;
 }
+
 .band-link .pointer {
   float: right;
   display: none;
 }
+
 .band-link.active .pointer {
   display: block;
 }
@@ -44,9 +50,11 @@ html, body {
 .page-header a:hover {
   text-decoration: none;
 }
+
 .band-info {
   margin-top: 20px;
 }
+
 .nav-tabs > li > a.active,
 .nav-tabs > li > a.active:hover,
 .nav-tabs > li > a.active:focus {
@@ -56,6 +64,34 @@ html, body {
   border: 1px solid #ddd;
   border-bottom-color: transparent;
 }
+
 .band-description-header {
   margin-bottom: 20px;
+}
+
+.loading-pane {
+  margin: 25px auto;
+}
+
+.loading-message {
+  text-align: center;
+  color: #aaa;
+}
+
+.error-pane {
+  margin: 25px auto;
+  background-color: rgba(255, 176, 176, 0.33);
+}
+
+.error-message {
+  text-align: center;
+  color: #e22626;
+  line-height: 100px;
+}
+
+.spinner {
+  background: url('/images/ajax-loader.gif') no-repeat;
+  height: 31px;
+  width: 31px;
+  margin: 0 auto;
 }
