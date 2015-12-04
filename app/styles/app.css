@@ -36,3 +36,7 @@ html, body {
   color: #aaa;
   font-size: 1.1em;
 }
+
+.rating-panel {
+  float: right;
+}

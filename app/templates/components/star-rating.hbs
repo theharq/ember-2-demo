@@ -1,0 +1,5 @@
+{{#each stars as |star|}}
+  <span class="star-rating glyphicon glyphicon-{{if star.full 'star' 'star-empty'}}"
+    {{action "set" star.rating}}>
+  </span>
+{{/each}}
