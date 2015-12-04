@@ -65,4 +65,16 @@ export default function() {
     let song = db.songs.insert(payload.data.attributes);
     return {data: { type: 'songs', id: song.id, attributes: song}};
   });
+
+  this.patch('/bands/:id', (db, request) => {
+    let payload = JSON.parse(request.requestBody);
+    let band = db.bands.update(request.params.id, payload.data.attributes);
+    return {data: { type: 'bands', id: band.id, attributes: band}};
+  });
+
+  this.patch('/songs/:id', (db, request) => {
+    let payload = JSON.parse(request.requestBody);
+    let song = db.songs.update(request.params.id, payload.data.attributes);
+    return {data: { type: 'songs', id: song.id, attributes: song}};
+  });
 }

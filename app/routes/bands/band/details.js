@@ -15,6 +15,10 @@ export default Ember.Route.extend({
           transition.abort();
         }
       }
+    },
+
+    save() {
+      this.get('controller.model').save();
     }
   }
 });
