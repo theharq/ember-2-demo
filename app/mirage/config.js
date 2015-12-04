@@ -1,11 +1,24 @@
 export default function() {
 
   this.get('/bands', function(db, request) {
-    return {
-      data: db.bands.map(attrs => (
-        {type: 'bands', id: attrs.id, attributes: attrs }
-      ))
-    };
+    let data = {};
+    data = db.bands.map((attrs) => {
+      let songs = db.songs.where({band_id: attrs.id});
+      let band = {
+        type: 'band',
+        id: attrs.id,
+        attributes: attrs ,
+        relationships: {
+          songs: {
+            data: songs.map(attrs => (
+              {type: 'songs', id: attrs.id, attributes: attrs }
+            ))
+          }
+        },
+      };
+      return band;
+    });
+    return { data };
   }),
 
   this.get('/bands/:id', function(db, request) {
