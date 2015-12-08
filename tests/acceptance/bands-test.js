@@ -36,11 +36,12 @@ test('Create a band', (assert) => {
 
 test('Create a new song in two steps', (assert) => {
   server.create('band', {name: 'Blind Guardian', description: ''});
-  visit('/');
-  click('.band-link:contains("Blind Guardian")');
+
+  selectBand('Blind Guardian');
   click('a:contains("create one?")');
   fillIn('.new-song', 'Fly');
-  triggerEvent('.new-song-form', 'submit');
+  submit('.new-song-form');
+
   andThen(() => {
     assertElement(assert, '.songs .song:contains("Fly")', 'Creates the song and displays it in the list');
   });

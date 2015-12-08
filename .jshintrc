@@ -6,7 +6,9 @@
     "-Promise",
     "assertTrimmedText",
     "assertLength",
-    "assertElement"
+    "assertElement",
+    "selectBand",
+    "submit"
   ],
   "browser": true,
   "boss": true,
