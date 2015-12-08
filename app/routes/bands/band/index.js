@@ -6,6 +6,6 @@ export default Ember.Route.extend({
       this.transitionTo('bands.band.songs');
     } else {
       this.transitionTo('bands.band.details');
-    };
+    }
   }
 });
