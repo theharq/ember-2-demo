@@ -3,7 +3,10 @@
     "server",
     "document",
     "window",
-    "-Promise"
+    "-Promise",
+    "assertTrimmedText",
+    "assertLength",
+    "assertElement"
   ],
   "browser": true,
   "boss": true,

@@ -16,9 +16,9 @@ test('List bands', (assert) => {
   server.createList('band', 2);
   visit('/bands');
   andThen(() => {
-    assert.equal(find('.band-link').length, 2, "All band links are rendered");
-    assert.equal(find('.band-link:contains("Band 0")').length, 1,"First band");
-    assert.equal(find('.band-link:contains("Band 1")').length, 1, "Second band");
+    assertLength(assert, '.band-link', 2, "All band links are rendered");
+    assertLength(assert, '.band-link:contains("Band 0")', 1, 'First band');
+    assertLength(assert, '.band-link:contains("Band 1")', 1, 'Second band');
   });
 });
 
@@ -28,9 +28,9 @@ test('Create a band', (assert) => {
   click('.new-band-button');
 
   andThen(() => {
-    assert.equal(find('.band-link').length, 1, 'All band links are rendered');
-    assert.equal(find('.band-link:last').text().trim(), 'Blind Guardian', 'Created band appears at the end of the list');
-    assert.equal(find('.nav a.active:contains("Songs")').length, 1, 'The Songs tab is active');
+    assertLength(assert, '.band-link', 1, 'All band links are rendered');
+    assertTrimmedText(assert, '.band-link:last', 'Blind Guardian', 'Created band appears at the end of the list');
+    assertElement(assert, '.nav a.active:contains("Songs")', 'The Songs tab is active');
   });
 });
 
@@ -42,6 +42,6 @@ test('Create a new song in two steps', (assert) => {
   fillIn('.new-song', 'Fly');
   triggerEvent('.new-song-form', 'submit');
   andThen(() => {
-    assert.equal(find('.songs .song:contains("Fly")').length, 1, "Creates the song and displays it in the list");
+    assertElement(assert, '.songs .song:contains("Fly")', 'Creates the song and displays it in the list');
   });
 });
