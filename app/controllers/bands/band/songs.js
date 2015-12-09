@@ -47,10 +47,6 @@ export default Ember.Controller.extend({
 
     enableSongCreation() {
       this.set('songCreationStarted', true);
-    },
-
-    setSorting(option) {
-      this.set('sortBy', option);
     }
   }
 });
