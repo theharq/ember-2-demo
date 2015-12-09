@@ -6,6 +6,18 @@ export default Ember.Controller.extend({
   songCreationStarted: false,
   canCreateSong: Ember.computed.or('songCreationStarted', 'songsCount'),
   isAddButtonDisabled: Ember.computed.empty('title'),
+  sortedSongs: Ember.computed.sort('model.songs', 'sortProperties'),
+  sortBy: 'ratingDesc',
+  sortProperties: Ember.computed('sortBy', function(){
+    const options = {
+      'ratingDesc': 'rating:desc,title:asc',
+      'ratingAsc': 'rating:asc,title:asc',
+      'titleDesc': 'title:desc',
+      'titleAsc': 'title:asc',
+    };
+    return options[this.get('sortBy')].split(',');
+  }),
+
   actions: {
 
     updateRating(params) {
@@ -24,5 +36,9 @@ export default Ember.Controller.extend({
     enableSongCreation() {
       this.set('songCreationStarted', true);
     },
+
+    setSorting(option) {
+      this.set('sortBy', option);
+    }
   }
 });
