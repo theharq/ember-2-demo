@@ -24,9 +24,7 @@ export default Ember.Controller.extend({
   actions: {
 
     updateRating(params) {
-      let song = params.item,
-          rating = params.rating;
-
+      let { item: song, rating } = params;
 
       if (song.get('rating') === rating) {
         rating = 0; // Resetting rating if value is the same
