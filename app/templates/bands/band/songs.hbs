@@ -51,14 +51,13 @@
       </div>
     {{/if}}
 
-    {{#if songsLoaded}}
-      {{#each sortedSongs as |song|}}
-        <div class="list-group-item song">
-            {{song.title}}
-            {{star-rating item=song rating=song.rating on-click=(action "updateRating")}}
-        </div>
-      {{/each}}
-    {{/if}}
+    {{#each sortedSongs as |song|}}
+      <div class="list-group-item song">
+          {{song.title}}
+          {{star-rating item=song rating=song.rating on-click=(action "updateRating")}}
+      </div>
+    {{/each}}
+
   </div>
 </div>
 

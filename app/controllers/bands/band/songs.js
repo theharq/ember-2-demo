@@ -8,13 +8,12 @@ export default Ember.Controller.extend({
   },
   sortBy: 'ratingDesc',
   searchTerm: '',
-  songsCount: computed.alias('model.songs.length'),
+  songsCount: computed.alias('model.length'),
   noSongs: computed.equal('songsCount', 0),
   songCreationStarted: false,
   canCreateSong: computed.or('songCreationStarted', 'songsCount'),
   isAddButtonDisabled: computed.empty('title'),
   sortedSongs: computed.sort('matchingSongs', 'sortProperties'),
-  songsLoaded: Ember.computed.alias('model.songs.isFulfilled'),
 
   sortProperties: computed('sortBy', function(){
     const options = {
@@ -26,9 +25,9 @@ export default Ember.Controller.extend({
     return options[this.get('sortBy')].split(',');
   }),
 
-  matchingSongs: computed('model.songs.@each.title', 'searchTerm', function() {
+  matchingSongs: computed('model.@each.title', 'searchTerm', function() {
     let searchTerm = this.get('searchTerm').toLowerCase();
-    return this.get('model.songs').filter((song) => {
+    return this.get('model').filter((song) => {
       return song.get('title').toLowerCase().indexOf(searchTerm) !== -1;
     });
   }),
