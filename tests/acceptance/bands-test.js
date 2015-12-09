@@ -76,3 +76,26 @@ test('Sort songs in varios ways', (assert) => {
     assertTrimmedText(assert, '.song:last', 'Title 4', "The last song is the highest ranked, last in the alphabet");
   });
 });
+
+
+test('Search songs', (assert) => {
+
+  let band = server.create('band', {name: 'Helloween', description: ''});
+  server.create('song', {band_id: band.id, title: 'Eagle fly free', rating: 5});
+  server.create('song', {band_id: band.id, title: 'I want out', rating: 4});
+  server.create('song', {band_id: band.id, title: 'If I could fly', rating: 4});
+  server.create('song', {band_id: band.id, title: 'Dr. Stein', rating: 5});
+
+  visit('/bands/1');
+  fillIn('.search-field', 'fly');
+
+  andThen(() => {
+    assertLength(assert, '.song', 2, "The songs matching the search term are displayed");
+  });
+
+  click('button.sort-title-desc');
+  andThen(() => {
+    assertTrimmedText(assert, '.song:first', 'If I could fly', "A matching song that comes later in the alphahet appears on top");
+    assertTrimmedText(assert, '.song:last', 'Eagle fly free', "A matching song that comes sooner in the alphahet appears at the bottom ");
+  });
+});
