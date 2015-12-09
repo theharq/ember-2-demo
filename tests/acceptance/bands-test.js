@@ -64,12 +64,14 @@ test('Sort songs in varios ways', (assert) => {
 
   click('button.sort-title-desc');
   andThen(() => {
+    assert.equal(currentURL(), '/bands/1/songs?sort=titleDesc');
     assertTrimmedText(assert, '.song:first', 'Title 4', "The first song is the one that is the last in the alphabet");
     assertTrimmedText(assert, '.song:last', 'Title 1', "The last song is the one that is the first in the alphabet");
   });
 
   click('button.sort-rating-asc');
   andThen(() => {
+    assert.equal(currentURL(), '/bands/1/songs?sort=ratingAsc');
     assertTrimmedText(assert, '.song:first', 'Title 2', "The first song is the lowest ranked, first in the alphabet");
     assertTrimmedText(assert, '.song:last', 'Title 4', "The last song is the highest ranked, last in the alphabet");
   });

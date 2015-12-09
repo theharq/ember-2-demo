@@ -1,13 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  queryParams: {
+    sortBy: 'sort',
+  },
+  sortBy: 'ratingDesc',
   songsCount: Ember.computed.alias('model.songs.length'),
   noSongs: Ember.computed.equal('songsCount', 0),
   songCreationStarted: false,
   canCreateSong: Ember.computed.or('songCreationStarted', 'songsCount'),
   isAddButtonDisabled: Ember.computed.empty('title'),
   sortedSongs: Ember.computed.sort('model.songs', 'sortProperties'),
-  sortBy: 'ratingDesc',
   sortProperties: Ember.computed('sortBy', function(){
     const options = {
       'ratingDesc': 'rating:desc,title:asc',
