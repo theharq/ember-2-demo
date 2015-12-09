@@ -3,12 +3,7 @@
     "server",
     "document",
     "window",
-    "-Promise",
-    "assertTrimmedText",
-    "assertLength",
-    "assertElement",
-    "selectBand",
-    "submit"
+    "-Promise"
   ],
   "browser": true,
   "boss": true,
