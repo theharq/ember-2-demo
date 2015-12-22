@@ -1,7 +1,23 @@
-# Ember-demo
+# Ember-2-demo
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is an Ember 2.2 app created for educational purposes
+
+It covers:
+ - ember-cli-mirage with the JSON API Specification
+ - nested routes
+ - simple client-side validations
+ - components
+ - closure actions
+ - DDAU (Data Down Actions Up)
+ - acceptance tests
+ - liquid-fire custom transitions
+ - loading substates
+ - errors substates
+ - custom async and sync qunit helpers
+ - query params
+ - sorting
+ - etc..
+
 
 ## Prerequisites
 
@@ -11,43 +27,15 @@ You will need the following things properly installed on your computer.
 * [Node.js](http://nodejs.org/) (with NPM)
 * [Bower](http://bower.io/)
 * [Ember CLI](http://www.ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* change into the new directory
+* `git clone https://github.com/theharq/ember-2-demo` this repository
+* `cd ember-2-demo`
 * `npm install`
 * `bower install`
 
 ## Running / Development
 
-* `ember server`
+* `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
